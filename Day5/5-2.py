@@ -20,19 +20,6 @@ grid = []
 for i in range(ymax+1):
     grid.append(list(gridline))
 
-def line(a1,a2,coord,axis):
-    if a1 > a2:
-        high = a1+1
-        low = a2
-    else:
-        high = a2+1
-        low = a1
-    for i in range(low,high):
-        if axis == 'x':
-            grid[i][coord] += 1
-        if axis == 'y':
-            grid[coord][i] += 1
-
 def direction(start, end):
     if start < end:
         difference = abs(start-end)
@@ -48,23 +35,19 @@ def list_create(start, end):
     else:
         return [start-x for x in range(payload[1])]
 
-def diagon_alley(tuple_list):
-    start = tuple_list[0]
-    end = tuple_list[1]
+for i in inputfile:
+    start = i[0]
+    end = i[1]
     xlist = list_create(start[0], end[0])
     ylist = list_create(start[1], end[1])
+    if len(xlist) > len(ylist):
+        ylist = [ylist[0] for x in range(len(xlist))]
+    if len(ylist) > len(xlist):
+        xlist = [xlist[0] for x in range(len(ylist))]
     for i in zip(ylist,xlist):
         y = i[0]
         x = i[1]
         grid[y][x] += 1
-
-for i in inputfile:
-    if i[0][0] == i[1][0]:
-        line(i[0][1],i[1][1],i[0][0],'x')
-    elif i[0][1] == i[1][1]:
-        line(i[0][0],i[1][0],i[0][1],'y')
-    else:
-        diagon_alley(i)
 
 answer_total = 0
 
