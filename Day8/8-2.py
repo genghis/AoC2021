@@ -1,8 +1,6 @@
 inputlist = [x.strip().split(' | ') for x in open('input8-1.txt')]
 
 easy_mapping = {1:2, 4:4, 7:3, 8:7}
-hard_mapping = {5: [2,3,5] ,6: [0,6,9]}
-
 answer = 0
 
 for i in inputlist:
@@ -34,5 +32,3 @@ for i in inputlist:
                 n_list.append(str(k))
     answer += int(''.join(n_list))
 print(answer)
-
-            
