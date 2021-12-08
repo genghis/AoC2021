@@ -4,9 +4,7 @@ mapping = {1: 2, 4:4, 7:3, 8: 7}
 counter = 0
 
 for i in inputlist:
-    # print(i[1])
     for n in i[1].split(' '):
-        print(f'{n} is length {len(n)}')
         if len(n) in mapping.values():
             counter += 1
 
