@@ -1,7 +1,4 @@
-input = [list(x.strip()) for x in open('input9-1.txt')]
-for i in input:
-    for index,n in enumerate(i):
-        i[index] = int(n)
+input = [[int(y) for y in x.strip()] for x in open('input9-1.txt')]
 
 risk = 0
 
