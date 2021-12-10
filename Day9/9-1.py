@@ -3,7 +3,6 @@ input = [[int(y) for y in x.strip()] for x in open('input9-1.txt')]
 risk = 0
 
 for line_location, line in enumerate(input):
-    
     if line_location == 0:
         previous_line = []
         previous_line.extend([10 for i in range(len(line))])
