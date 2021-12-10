@@ -1,12 +1,9 @@
 input = [x.strip() for x in open('input10-1.txt')]
 
 legal = ['[]','()','{}','<>']
-opens = ['[','(','{','<']
 scores = {')': 1, ']': 2, '}': 3,'>': 4}
 matching = {'[':']','(':')','{':'}','<':'>'}
 total = []
-
-string_list = []
 
 def parse(string):
     for i in legal:
@@ -28,7 +25,6 @@ def complete(string):
         internal_score += scores[n]
     total.append(internal_score)
     
-
 for string in input:
     parsed = parse(string)
     if parsed == '':
@@ -40,6 +36,5 @@ for string in input:
         winner = result[0]
         
 total.sort()
-
 total_index = int(len(total)/2 - .5)
 print(total[total_index])
