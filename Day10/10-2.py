@@ -16,14 +16,11 @@ def parse(string):
         return string
 
 def complete(string):
-    internal_score = 0
-    l1 = []
+    total = 0
     for i in string[::-1]:
-        l1.append(matching[i])
-    for n in l1:
-        internal_score *= 5
-        internal_score += scores[n]
-    total.append(internal_score)
+        total *= 5
+        total += scores[matching[i]]
+    total.append(total)
     
 for string in input:
     parsed = parse(string)
