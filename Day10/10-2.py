@@ -32,8 +32,6 @@ for string in input:
     result = list(filter(lambda x: x in scores.keys(), parsed))
     if not result:
         complete(parsed)
-    else:
-        winner = result[0]
         
 total.sort()
 total_index = int(len(total)/2 - .5)
