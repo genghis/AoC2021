@@ -4,8 +4,6 @@ legal = ['[]','()','{}','<>']
 scores = {')': 3, ']': 57, '}': 1197,'>': 25137}
 total = 0
 
-string_list = []
-
 def parse(string):
     for i in legal:
         if i in string:
