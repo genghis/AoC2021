@@ -1,8 +1,6 @@
 input = [x.strip() for x in open('input10-1.txt')]
-# print(input)
 
 legal = ['[]','()','{}','<>']
-opens = ['[','(','{','<']
 scores = {')': 3, ']': 57, '}': 1197,'>': 25137}
 total = 0
 
