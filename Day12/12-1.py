@@ -13,7 +13,7 @@ for i in inputlist:
     else:
         caves[b] = [a]
 
-def find_all_paths(caves, start, end, path=[]):
+def traverse(caves, start, end, path=[]):
         path = path + [start]
         if start == end:
             return [path]
@@ -24,11 +24,11 @@ def find_all_paths(caves, start, end, path=[]):
             if cavern.islower() and cavern in path:
                 pass
             else:
-                newpaths = find_all_paths(caves, cavern, end, path)
+                newpaths = traverse(caves, cavern, end, path)
                 for newpath in newpaths:
                     paths.append(newpath)
         return paths
 
-answer = find_all_paths(caves,'start','end',[])
+answer = traverse(caves,'start','end',[])
 
 print(len(answer))
