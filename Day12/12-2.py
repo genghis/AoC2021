@@ -17,8 +17,6 @@ def traverse(caves, start, end, path=[]):
         path = path + [start]
         if start == end:
             return [path]
-        if start not in caves.keys():
-            return []
         paths = []
         for cavern in caves[start]:
             doubledip_smalls = len([x for x in path if x.islower() and path.count(x) > 1])
