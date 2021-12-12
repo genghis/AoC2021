@@ -1,9 +1,6 @@
-inputlist = [x.strip() for x in open('testinput.txt')]
-# print(inputlist)
+inputlist = [x.strip() for x in open('input12.txt')]
 
 caves = {}
-current_path = []
-paths = []
 
 for i in inputlist:
     a,b = i.split('-')
@@ -16,26 +13,22 @@ for i in inputlist:
     else:
         caves[b] = [a]
 
-
-# print(caves)
-def traverse(cave):  
-    if cave == 'end':
-        pass
-    else:
-        for i in caves[cave]:
-            if i.islower() and i in current_path:
-                pass
-            elif 'end' in current_path:
+def find_all_paths(caves, start, end, path=[]):
+        path = path + [start]
+        if start == end:
+            return [path]
+        if start not in caves.keys():
+            return []
+        paths = []
+        for cavern in caves[start]:
+            if cavern.islower() and cavern in path:
                 pass
             else:
-                current_path.append(i)
-                traverse(i)
-    if current_path[0] == 'start' and current_path[-1] == 'end':
-        paths.append(current_path.copy())
+                newpaths = find_all_paths(caves, cavern, end, path)
+                for newpath in newpaths:
+                    paths.append(newpath)
+        return paths
 
-for cave in caves['start']:
-    current_path.clear()
-    current_path = ['start',cave]
-    traverse(cave)
+answer = find_all_paths(caves,'start','end',[])
 
-print(paths)
+print(len(answer))
