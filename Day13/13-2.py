@@ -1,6 +1,6 @@
-# gridbasics = [x.strip() for x in open('input13.txt')]
+gridbasics = [x.strip() for x in open('input13.txt')]
 # gridbasics = [x.strip() for x in open('testinput.txt')]
-gridbasics = [x.strip() for x in open('buddhainput.txt')]
+# gridbasics = [x.strip() for x in open('buddhainput.txt')]
 gridcoordinates = []
 
 folds = ['x=655','y=447','x=327','y=223','x=163','y=111','x=81','y=55','x=40','y=27','y=13','y=6']
@@ -31,12 +31,11 @@ for i in gridcoordinates:
 for i in folds:
     a,b = i.split('=')
     number = int(b)
-    print(number)
     if a == 'y':
         for num in range(number):
             newlist = [a + b for a, b in zip(grid[num], grid[-num-1])]
             grid[num] = newlist
-        grid = grid[:number]
+        grid = grid[:abs(number)]
         # print(len(grid))
 
     else:
@@ -45,7 +44,7 @@ for i in folds:
             for ind,num in enumerate(line[0:number]):
                 new = line[ind] + line[-ind-1]
                 newlist.append(new)
-            grid[index] = newlist
+            grid[abs(index)] = newlist
         # print(len(grid[index]))
 
 total = 0
